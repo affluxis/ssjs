@@ -1,2 +1,2 @@
-# af2_sscjsd
-Server-Side Communication JavaScript Dictionary
+# af2_sscjs
+Server-Side Communication JavaScript
