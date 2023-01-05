@@ -22,7 +22,7 @@ sudo yum install ifstat
 sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
 sudo yum install aspnetcore-runtime-6.0
 
-- add affluxis user to wcs. you may want to specify a different password. this password is specified at /home/ec2-user/affluxis/conf/server.sc
+- add affluxis user to wcs. you may want to specify a different password. this password is specified at /home/ec2-user/affluxis/conf/server.ssc
 
 ssh -p 2001 admin@localhost
 add app affluxis affluxis http://localhost:5000/affluxis
