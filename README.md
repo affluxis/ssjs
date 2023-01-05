@@ -19,36 +19,36 @@ sudo yum install ifstat
 
 - install dotnet
 
-sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
+sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm  
 sudo yum install aspnetcore-runtime-6.0
 
 - add affluxis user to wcs. you may want to specify a different password. this password is specified at /home/ec2-user/affluxis/conf/server.ssc
 
-ssh -p 2001 admin@localhost
-add app affluxis affluxis http://localhost:5000/affluxis
-add app-rest-method -a affluxis
-add user affluxis myPix
-passwd admin
-unPix
-update app -l http://localhost:5000/affluxis defaultApp
-update app -l http://localhost:5000/affluxis flashStreamingApp
+ssh -p 2001 admin@localhost  
+add app affluxis affluxis http://localhost:5000/affluxis  
+add app-rest-method -a affluxis  
+add user affluxis myPix  
+passwd admin  
+unPix  
+update app -l http://localhost:5000/affluxis defaultApp  
+update app -l http://localhost:5000/affluxis flashStreamingApp  
 exit
 
 - add services
 
-/etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl start affluxis.service
-sudo systemctl enable affluxis.service
-sudo systemctl start stats.service
-sudo systemctl enable stats.service
-sudo systemctl start statsbw.service
-sudo systemctl enable statsbw.service
+/etc/systemd/system/  
+sudo systemctl daemon-reload  
+sudo systemctl start affluxis.service  
+sudo systemctl enable affluxis.service  
+sudo systemctl start stats.service  
+sudo systemctl enable stats.service  
+sudo systemctl start statsbw.service  
+sudo systemctl enable statsbw.service  
 
 - /home/ec2-user/affluxis/statsbw/ - owner/group root, recursive
 - add symlink
 
-affluxis
+affluxis  
 /home/ec2-user/affluxis/applications/wwwroot
 
 - add ssl
@@ -57,10 +57,10 @@ you may either add your own ssl certificate or contact us at support@affluxis.co
 
 - execute these commands
 
-usermod -G ec2-user flashphoner
-chmod 755 /home/ec2-user/
-chown -R flashphoner:flashphoner /home/ec2-user/affluxis/
-chown -R flashphoner:flashphoner /home/ec2-user/ffmpeg/
+usermod -G ec2-user flashphoner  
+chmod 755 /home/ec2-user/  
+chown -R flashphoner:flashphoner /home/ec2-user/affluxis/  
+chown -R flashphoner:flashphoner /home/ec2-user/ffmpeg/  
 sudo /usr/local/FlashphonerWebCallServer/bin/webcallserver set-permissions
 
 - right-click /home/ec2-user/affluxis/ & /home/ec2-user/ffmpeg/ and set permissions to 755, subfolders
@@ -69,18 +69,18 @@ sudo /usr/local/FlashphonerWebCallServer/bin/webcallserver set-permissions
 - wcs url https://demo.affluxis.com:8444/
 - services control
 
-sudo systemctl status affluxis.service
-sudo systemctl stop affluxis.service
-sudo systemctl start affluxis.service
+sudo systemctl status affluxis.service  
+sudo systemctl stop affluxis.service  
+sudo systemctl start affluxis.service  
 
-sudo systemctl status stats.service
-sudo systemctl stop stats.service
-sudo systemctl start stats.service
+sudo systemctl status stats.service  
+sudo systemctl stop stats.service  
+sudo systemctl start stats.service  
 
-sudo systemctl status statsbw.service
-sudo systemctl stop statsbw.service
-sudo systemctl start statsbw.service
+sudo systemctl status statsbw.service  
+sudo systemctl stop statsbw.service  
+sudo systemctl start statsbw.service  
 
-cd /usr/local/FlashphonerWebCallServer/bin
-./shutdown.sh
-./startup.sh
+cd /usr/local/FlashphonerWebCallServer/bin  
+./shutdown.sh  
+./startup.sh  
