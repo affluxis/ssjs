@@ -28,22 +28,22 @@ sudo yum install ifstat
 
 - add affluxis user to WCS. you may want to specify a different password. this password is set at /opt/affluxis/conf/server.asc
 
-ssh -p 2001 admin@localhost
-add app affluxis affluxis http://localhost:5000/affluxis
-add app-rest-method -a affluxis
-add user affluxis myPix
-passwd admin
-unPix
-update app -l http://localhost:5000/affluxis defaultApp
-update app -l http://localhost:5000/affluxis flashStreamingApp
+ssh -p 2001 admin@localhost  
+add app affluxis affluxis http://localhost:5000/affluxis  
+add app-rest-method -a affluxis  
+add user affluxis myPix  
+passwd admin  
+unPix  
+update app -l http://localhost:5000/affluxis defaultApp  
+update app -l http://localhost:5000/affluxis flashStreamingApp  
 exit
 
 - add services files to /etc/systemd/system/. Then execute the following commands
 
-sudo systemctl daemon-reload
-sudo systemctl enable affluxis.service
-sudo systemctl enable stats.service
-sudo systemctl enable statsbw.service
+sudo systemctl daemon-reload  
+sudo systemctl enable affluxis.service  
+sudo systemctl enable stats.service  
+sudo systemctl enable statsbw.service  
 
 - add flashphoner user to ec2-user group
 
@@ -53,27 +53,26 @@ sudo usermod -G ec2-user flashphoner
 - /opt/affluxis/statsbw/ - owner/group root, recursive
 - add symlink
 
-affluxis
+affluxis  
 /opt/affluxis/applications/wwwroot
 
 - add SSL, you may either add your own SSL certificate or contact us at support@affluxis.com or Cell, Telegram, WhatsApp +852 5591 8235, for a 3 month subdomain SSL certificate for $6
-
 - console url https://affluxis.com/console?a=yoursubdomain.affluxis.com&b=vhost_user&c=vhost_pass
 - www url https://yoursubdomain.affluxis.com:8444/client2/affluxis/page-title-img.jpg
 - services control
 
-sudo systemctl status affluxis.service -l
-sudo systemctl start affluxis.service
-sudo systemctl stop affluxis.service
+sudo systemctl status affluxis.service -l  
+sudo systemctl start affluxis.service  
+sudo systemctl stop affluxis.service  
 
-sudo systemctl status stats.service -l
-sudo systemctl start stats.service
-sudo systemctl stop stats.service
+sudo systemctl status stats.service -l  
+sudo systemctl start stats.service  
+sudo systemctl stop stats.service  
 
-sudo systemctl status statsbw.service -l
-sudo systemctl start statsbw.service
-sudo systemctl stop statsbw.service
+sudo systemctl status statsbw.service -l  
+sudo systemctl start statsbw.service  
+sudo systemctl stop statsbw.service  
 
-cd /usr/local/FlashphonerWebCallServer/bin
-./shutdown.sh
+cd /usr/local/FlashphonerWebCallServer/bin  
+./shutdown.sh  
 ./startup.sh
