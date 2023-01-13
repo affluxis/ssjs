@@ -15,8 +15,8 @@ ssh -i "mymy.pem" ec2-user@ec2-15-206-158-82.ap-south-1.compute.amazonaws.com
 - login via WinSCP as root
 - update WCS to the latest version
 
-sudo -s
-cd /usr/local/FlashphonerWebCallServer/bin
+sudo -s  
+cd /usr/local/FlashphonerWebCallServer/bin  
 ./webcallserver update yes
 
 - update flashphoner.properties
