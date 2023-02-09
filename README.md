@@ -55,6 +55,8 @@ sudo usermod -G ec2-user flashphoner
 
 affluxis  
 /opt/affluxis/applications/wwwroot
+records
+/usr/local/FlashponerWebCallServer/records
 
 - add SSL, you may either add your own SSL certificate or contact us at support@affluxis.com or Cell, Telegram, WhatsApp +852 5591 8235, for a 3 month subdomain SSL certificate for $6
 - console url https://affluxis.com/console?a=yoursubdomain.affluxis.com&b=vhost_user&c=vhost_pass
